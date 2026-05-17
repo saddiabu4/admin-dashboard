@@ -40,10 +40,10 @@ export function DashboardPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold">Dashboard</h1>
+        <h1 className="text-4xl font-black tracking-tight">Dashboard</h1>
 
-        <p className="text-muted-foreground mt-2">
-          Welcome to your admin dashboard overview.
+        <p className="text-muted-foreground mt-3 text-base">
+          Welcome to your enterprise admin dashboard overview.
         </p>
       </div>
 
@@ -52,16 +52,25 @@ export function DashboardPage() {
           const Icon = item.icon
 
           return (
-            <Card key={item.title} className="shadow-sm">
-              <CardContent className="flex items-center justify-between p-6">
-                <div className="space-y-1">
-                  <p className="text-muted-foreground text-sm">{item.title}</p>
+            <Card
+              key={item.title}
+              className="group border-border/50 bg-background/70 relative overflow-hidden border shadow-sm backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10"
+            >
+              <CardContent className="relative flex items-center justify-between p-6">
+                <div className="absolute right-[-30px] top-[-30px] h-24 w-24 rounded-full bg-indigo-500/10 blur-3xl transition-all duration-500 group-hover:bg-indigo-500/20" />
 
-                  <h2 className="text-3xl font-bold">{item.value}</h2>
+                <div className="space-y-2">
+                  <p className="text-muted-foreground text-xs font-medium uppercase tracking-wider">
+                    {item.title}
+                  </p>
+
+                  <h2 className="text-4xl font-black tracking-tight">
+                    {item.value}
+                  </h2>
                 </div>
 
-                <div className="bg-primary/10 flex size-12 items-center justify-center rounded-2xl">
-                  <Icon className="text-primary size-6" />
+                <div className="flex size-14 items-center justify-center rounded-3xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/30 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                  <Icon className="size-7" />
                 </div>
               </CardContent>
             </Card>
@@ -70,35 +79,55 @@ export function DashboardPage() {
       </div>
 
       <div className="grid gap-5 xl:grid-cols-3">
-        <Card className="xl:col-span-2">
+        <Card className="border-border/50 bg-background/70 border backdrop-blur-xl xl:col-span-2">
           <CardContent className="p-6">
-            <h3 className="mb-4 text-lg font-semibold">Analytics Overview</h3>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold tracking-tight">
+                Analytics Overview
+              </h3>
 
-            <div className="bg-muted flex h-72 items-center justify-center rounded-xl">
-              Chart Area
+              <p className="text-muted-foreground mt-1 text-sm">
+                Revenue and platform activity insights
+              </p>
+            </div>
+
+            <div className="bg-muted/50 border-border/50 flex h-72 items-center justify-center rounded-3xl border">
+              <span className="text-muted-foreground text-sm">
+                Analytics Chart
+              </span>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-border/50 bg-background/70 border backdrop-blur-xl">
           <CardContent className="p-6">
-            <h3 className="mb-4 text-lg font-semibold">Recent Activity</h3>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold tracking-tight">
+                Recent Activity
+              </h3>
+
+              <p className="text-muted-foreground mt-1 text-sm">
+                Latest system updates
+              </p>
+            </div>
 
             <div className="space-y-4">
-              <div className="flex items-center justify-between rounded-lg border p-3">
-                <span className="text-sm">New payment received</span>
+              <div className="hover:bg-muted/50 border-border/50 flex items-center justify-between rounded-2xl border p-4 transition-colors">
+                <span className="text-sm font-medium">
+                  New payment received
+                </span>
 
                 <span className="text-muted-foreground text-xs">2m ago</span>
               </div>
 
-              <div className="flex items-center justify-between rounded-lg border p-3">
-                <span className="text-sm">New user registered</span>
+              <div className="hover:bg-muted/50 border-border/50 flex items-center justify-between rounded-2xl border p-4 transition-colors">
+                <span className="text-sm font-medium">New user registered</span>
 
                 <span className="text-muted-foreground text-xs">10m ago</span>
               </div>
 
-              <div className="flex items-center justify-between rounded-lg border p-3">
-                <span className="text-sm">Report generated</span>
+              <div className="hover:bg-muted/50 border-border/50 flex items-center justify-between rounded-2xl border p-4 transition-colors">
+                <span className="text-sm font-medium">Report generated</span>
 
                 <span className="text-muted-foreground text-xs">30m ago</span>
               </div>

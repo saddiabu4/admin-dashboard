@@ -6,19 +6,29 @@ import { Card, CardContent } from '@/shared/ui/card'
 
 export function LoginPage() {
   return (
-    <div className="bg-muted/40 flex min-h-screen items-center justify-center p-4">
-      <Card className="w-full max-w-md border-none shadow-xl">
-        <CardContent className="space-y-6 p-8">
-          <div className="space-y-2 text-center">
-            <div className="bg-primary text-primary-foreground mx-auto flex size-14 items-center justify-center rounded-2xl">
-              <ShieldCheck className="size-7" />
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 px-4">
+      <div className="absolute inset-0">
+        <div className="absolute left-[-100px] top-[-100px] h-[300px] w-[300px] rounded-full bg-indigo-500/20 blur-3xl" />
+
+        <div className="absolute bottom-[-120px] right-[-120px] h-[350px] w-[350px] rounded-full bg-purple-500/20 blur-3xl" />
+      </div>
+
+      <Card className="relative z-10 w-full max-w-md border border-white/10 bg-white/10 shadow-2xl backdrop-blur-xl dark:bg-white/5">
+        <CardContent className="space-y-8 p-8">
+          <div className="space-y-4 text-center">
+            <div className="mx-auto flex size-16 items-center justify-center rounded-3xl bg-indigo-500 text-white shadow-lg shadow-indigo-500/30">
+              <ShieldCheck className="size-8" />
             </div>
 
-            <h1 className="text-3xl font-bold">Welcome Back</h1>
+            <div>
+              <h1 className="text-4xl font-bold tracking-tight text-white">
+                Welcome Back
+              </h1>
 
-            <p className="text-muted-foreground text-sm">
-              Login to your admin dashboard
-            </p>
+              <p className="mt-3 text-sm text-slate-300">
+                Sign in to access your admin dashboard
+              </p>
+            </div>
           </div>
 
           <LoginForm />

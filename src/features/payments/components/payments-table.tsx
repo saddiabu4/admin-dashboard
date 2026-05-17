@@ -56,7 +56,7 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
   }
 
   return (
-    <Card>
+    <Card className="border-border/50 bg-background/70 overflow-hidden border shadow-sm backdrop-blur-xl">
       <CardContent className="p-0">
         <Table>
           <TableHeader>
@@ -74,46 +74,78 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
           <TableBody>
             {paginatedPayments.map(payment => (
               <TableRow key={payment.id}>
-                <TableCell className="font-medium">
-                  {payment.customer}
+                <TableCell className="font-semibold">
+                  <div className="flex items-center gap-3">
+                    <div className="flex size-10 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 text-sm font-bold text-white shadow-md shadow-indigo-500/20">
+                      {payment.customer[0]}
+                    </div>
+
+                    <div>
+                      <p className="font-semibold">{payment.customer}</p>
+
+                      <p className="text-muted-foreground text-xs">
+                        Payment Client
+                      </p>
+                    </div>
+                  </div>
                 </TableCell>
 
-                <TableCell>${payment.amount}</TableCell>
+                <TableCell>
+                  <span className="font-semibold text-emerald-500">
+                    ${payment.amount}
+                  </span>
+                </TableCell>
 
                 <TableCell>
                   <Badge
-                    variant={
-                      payment.status === 'Paid' ? 'default' : 'secondary'
+                    className={
+                      payment.status === 'Paid'
+                        ? 'rounded-xl border border-emerald-500/10 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-500'
+                        : 'rounded-xl border border-yellow-500/10 bg-yellow-500/10 px-3 py-1 text-xs font-medium text-yellow-500'
                     }
                   >
                     {payment.status}
                   </Badge>
                 </TableCell>
 
-                <TableCell>{payment.date}</TableCell>
+                <TableCell className="text-muted-foreground">
+                  {payment.date}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
 
-        <div className="flex items-center justify-end gap-3 border-t p-4">
-          <Button
-            variant="outline"
-            disabled={page === 1}
-            onClick={() => setPage(prev => prev - 1)}
-          >
-            Previous
-          </Button>
+        <div className="border-border/50 flex items-center justify-between border-t p-5">
+          <div className="text-muted-foreground text-sm">
+            Showing{' '}
+            <span className="font-semibold text-foreground">
+              {paginatedPayments.length}
+            </span>{' '}
+            payments
+          </div>
 
-          <span className="text-sm font-medium">Page {page}</span>
+          <div className="flex items-center gap-3">
+            <Button
+              variant="outline"
+              disabled={page === 1}
+              onClick={() => setPage(prev => prev - 1)}
+            >
+              Previous
+            </Button>
 
-          <Button
-            variant="outline"
-            disabled={page * pageSize >= filteredPayments.length}
-            onClick={() => setPage(prev => prev + 1)}
-          >
-            Next
-          </Button>
+            <div className="bg-background/70 border-border/50 rounded-2xl border px-4 py-2 text-sm font-semibold shadow-sm backdrop-blur-xl">
+              Page {page}
+            </div>
+
+            <Button
+              variant="outline"
+              disabled={page * pageSize >= filteredPayments.length}
+              onClick={() => setPage(prev => prev + 1)}
+            >
+              Next
+            </Button>
+          </div>
         </div>
       </CardContent>
     </Card>

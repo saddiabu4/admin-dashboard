@@ -34,14 +34,14 @@ function SidebarContent() {
             to={item.href}
             className={({ isActive }) =>
               cn(
-                'hover:bg-muted flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-colors',
+                'group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition-all duration-300 hover:bg-indigo-500/10 hover:text-indigo-500',
 
                 isActive &&
-                  'bg-primary text-primary-foreground hover:bg-primary',
+                  'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/20',
               )
             }
           >
-            <Icon className="size-5" />
+            <Icon className="size-5 transition-transform duration-300 group-hover:scale-110" />
 
             {item.label}
           </NavLink>
@@ -51,13 +51,25 @@ function SidebarContent() {
   )
 }
 
+function SidebarHeader() {
+  return (
+    <div className="border-border/50 flex h-16 items-center gap-4 border-b px-6">
+      <div className="flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 text-lg font-bold text-white shadow-lg shadow-indigo-500/30">
+        A
+      </div>
+
+      <div>
+        <h2 className="text-lg font-bold tracking-tight">Admin Panel</h2>
+      </div>
+    </div>
+  )
+}
+
 export function Sidebar() {
   return (
     <>
-      <aside className="bg-background hidden w-64 border-r lg:flex lg:flex-col">
-        <div className="border-b px-6 py-5">
-          <h2 className="text-xl font-bold">Admin Dashboard</h2>
-        </div>
+      <aside className="bg-background/80 border-border/50 fixed inset-y-0 left-0 z-40 hidden w-72 border-r backdrop-blur-xl lg:flex lg:flex-col">
+        <SidebarHeader />
 
         <SidebarContent />
       </aside>
@@ -65,15 +77,20 @@ export function Sidebar() {
       <div className="fixed left-4 top-4 z-50 lg:hidden">
         <Sheet>
           <SheetTrigger asChild>
-            <Button size="icon" variant="outline">
+            <Button
+              size="icon"
+              variant="outline"
+              className="border-border/50 bg-background/80 backdrop-blur-xl"
+            >
               <Menu className="size-5" />
             </Button>
           </SheetTrigger>
 
-          <SheetContent side="left" className="w-72 p-0">
-            <div className="border-b px-6 py-5">
-              <h2 className="text-xl font-bold">Admin Dashboard</h2>
-            </div>
+          <SheetContent
+            side="left"
+            className="bg-background/95 w-72 border-r p-0 backdrop-blur-xl"
+          >
+            <SidebarHeader />
 
             <SidebarContent />
           </SheetContent>

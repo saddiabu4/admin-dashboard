@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import { useForm } from 'react-hook-form'
 
-import { Loader2 } from 'lucide-react'
+import { Loader2, Lock, Mail } from 'lucide-react'
 
 import { useLogin } from '../hooks/use-login'
 
@@ -50,16 +50,25 @@ export function LoginForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel className="text-slate-200">Email</FormLabel>
 
               <FormControl>
-                <Input type="email" placeholder="admin@test.com" {...field} />
+                <div className="relative">
+                  <Mail className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
+
+                  <Input
+                    type="email"
+                    placeholder="admin@test.com"
+                    className="h-12 rounded-xl border-white/10 bg-white/5 pl-11 text-white placeholder:text-slate-400 focus-visible:ring-indigo-500"
+                    {...field}
+                  />
+                </div>
               </FormControl>
 
               <FormMessage />
@@ -72,10 +81,19 @@ export function LoginForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel className="text-slate-200">Password</FormLabel>
 
               <FormControl>
-                <Input type="password" placeholder="********" {...field} />
+                <div className="relative">
+                  <Lock className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
+
+                  <Input
+                    type="password"
+                    placeholder="********"
+                    className="h-12 rounded-xl border-white/10 bg-white/5 pl-11 text-white placeholder:text-slate-400 focus-visible:ring-indigo-500"
+                    {...field}
+                  />
+                </div>
               </FormControl>
 
               <FormMessage />
@@ -83,10 +101,14 @@ export function LoginForm() {
           )}
         />
 
-        <Button type="submit" className="w-full" disabled={isPending}>
+        <Button
+          type="submit"
+          className="h-12 w-full rounded-xl bg-indigo-500 text-base font-semibold text-white transition-all hover:bg-indigo-600 hover:shadow-lg hover:shadow-indigo-500/30"
+          disabled={isPending}
+        >
           {isPending ? (
             <>
-              <Loader2 className="animate-spin" />
+              <Loader2 className="size-4 animate-spin" />
               Logging in...
             </>
           ) : (
