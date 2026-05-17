@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { LoginPage } from '@/pages/auth/login-page'
 import { DashboardPage } from '@/pages/dashboard/dashboard-page'
 import { ForbiddenPage } from '@/pages/forbidden/forbidden-page'
+import { NotFoundPage } from '@/pages/not-found/not-found-page'
 import { PaymentsPage } from '@/pages/payments/payments-page'
 import { ReportsPage } from '@/pages/reports/reports-page'
 import { UsersPage } from '@/pages/users/users-page'
@@ -87,5 +88,10 @@ export const routeConfig: AppRoute[] = [
   {
     path: '/403',
     element: <ForbiddenPage />,
+  },
+  {
+    path: '*',
+
+    element: <NotFoundPage />,
   },
 ]

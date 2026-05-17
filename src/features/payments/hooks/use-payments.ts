@@ -1,9 +1,15 @@
-import type { Payment } from '../types'
+import { useQuery } from '@tanstack/react-query'
+
+import { payments } from '@/mocks/data/payments'
 
 export function usePayments() {
-  return {
-    data: [] as Payment[],
-    isLoading: false,
-    error: null as string | null,
-  }
+  return useQuery({
+    queryKey: ['payments'],
+
+    queryFn: async () => {
+      await new Promise(resolve => setTimeout(resolve, 600))
+
+      return payments
+    },
+  })
 }

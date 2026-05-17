@@ -4,13 +4,13 @@ import { Badge } from '@/shared/ui/badge'
 
 import { Card, CardContent } from '@/shared/ui/card'
 
-import { Skeleton } from '@/shared/ui/skeleton'
-
 import { DeleteUserDialog } from './delete-user-dialog'
 
 import { EditUserDialog } from './edit-user-dialog'
 
 import { EmptyState } from '@/shared/ui/empty-state'
+
+import { Loading } from '@/shared/ui/loading'
 
 import {
   Table,
@@ -48,15 +48,7 @@ export function UsersTable({ search }: UsersTableProps) {
   }
 
   if (isLoading) {
-    return (
-      <div className="space-y-4">
-        <Skeleton className="h-12 w-full" />
-
-        <Skeleton className="h-12 w-full" />
-
-        <Skeleton className="h-12 w-full" />
-      </div>
-    )
+    return <Loading text="Loading users..." />
   }
 
   return (

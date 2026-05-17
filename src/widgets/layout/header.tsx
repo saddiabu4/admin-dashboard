@@ -10,6 +10,8 @@ import { Avatar, AvatarFallback } from '@/shared/ui/avatar'
 
 import { Button } from '@/shared/ui/button'
 
+import { ThemeToggle } from '../theme-toggle/theme-toggle'
+
 export function Header() {
   const navigate = useNavigate()
 
@@ -34,6 +36,7 @@ export function Header() {
       </div>
 
       <div className="flex items-center gap-4">
+        <ThemeToggle />
         <Avatar>
           <AvatarFallback>
             {user?.firstName?.[0]}
