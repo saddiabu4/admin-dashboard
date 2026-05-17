@@ -13,37 +13,31 @@ import { Card, CardContent } from '@/shared/ui/card'
 const data = [
   {
     month: 'Jan',
-
     revenue: 4000,
   },
 
   {
     month: 'Feb',
-
     revenue: 3000,
   },
 
   {
     month: 'Mar',
-
     revenue: 5200,
   },
 
   {
     month: 'Apr',
-
     revenue: 4100,
   },
 
   {
     month: 'May',
-
     revenue: 6200,
   },
 
   {
     month: 'Jun',
-
     revenue: 5800,
   },
 ]
@@ -69,18 +63,18 @@ export function ReportsPage() {
             </p>
           </div>
 
-          <div className="max-h-96">
+          <div className="h-[400px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={data}>
-                <CartesianGrid strokeDasharray="3 3" />
+                <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
 
                 <XAxis dataKey="month" />
 
-                <YAxis />
+                <YAxis width={40} />
 
                 <Tooltip />
 
-                <Bar dataKey="revenue" radius={[8, 8, 0, 0]} />
+                <Bar dataKey="revenue" radius={[8, 8, 0, 0]} fill="#6366f1" />
               </BarChart>
             </ResponsiveContainer>
           </div>
