@@ -1,1 +1,1 @@
-export const useUpdateUser = () => ({ mutate: (d: any) => void d })
+export const useUpdateUser = () => ({ mutate: (data: unknown) => void data })

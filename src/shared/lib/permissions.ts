@@ -1,3 +1,3 @@
-export function hasPermission(user: any, perm: string) {
+export function hasPermission(user: unknown, perm: string) {
   return Boolean(user) && Boolean(perm)
 }

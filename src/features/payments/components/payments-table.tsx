@@ -1,8 +1,16 @@
+import { useState } from 'react'
+
+import { usePayments } from '../hooks/use-payments'
+
 import { Badge } from '@/shared/ui/badge'
+
+import { Button } from '@/shared/ui/button'
 
 import { Card, CardContent } from '@/shared/ui/card'
 
-import { Skeleton } from '@/shared/ui/skeleton'
+import { EmptyState } from '@/shared/ui/empty-state'
+
+import { Loading } from '@/shared/ui/loading'
 
 import {
   Table,
@@ -13,20 +21,37 @@ import {
   TableRow,
 } from '@/shared/ui/table'
 
-import { usePayments } from '../hooks/use-payments'
+type PaymentsTableProps = {
+  search: string
+}
 
-export function PaymentsTable() {
+export function PaymentsTable({ search }: PaymentsTableProps) {
   const { data, isLoading } = usePayments()
 
+  const [page, setPage] = useState(1)
+
+  const pageSize = 10
+
+  const filteredPayments =
+    data?.filter(payment =>
+      payment.customer.toLowerCase().includes(search.toLowerCase()),
+    ) ?? []
+
+  const paginatedPayments = filteredPayments.slice(
+    (page - 1) * pageSize,
+    page * pageSize,
+  )
+
   if (isLoading) {
+    return <Loading text="Loading payments..." />
+  }
+
+  if (!filteredPayments.length) {
     return (
-      <div className="space-y-4">
-        <Skeleton className="h-12 w-full" />
-
-        <Skeleton className="h-12 w-full" />
-
-        <Skeleton className="h-12 w-full" />
-      </div>
+      <EmptyState
+        title="No payments found"
+        description="Try searching with a different keyword."
+      />
     )
   }
 
@@ -47,7 +72,7 @@ export function PaymentsTable() {
           </TableHeader>
 
           <TableBody>
-            {data?.map(payment => (
+            {paginatedPayments.map(payment => (
               <TableRow key={payment.id}>
                 <TableCell className="font-medium">
                   {payment.customer}
@@ -70,6 +95,26 @@ export function PaymentsTable() {
             ))}
           </TableBody>
         </Table>
+
+        <div className="flex items-center justify-end gap-3 border-t p-4">
+          <Button
+            variant="outline"
+            disabled={page === 1}
+            onClick={() => setPage(prev => prev - 1)}
+          >
+            Previous
+          </Button>
+
+          <span className="text-sm font-medium">Page {page}</span>
+
+          <Button
+            variant="outline"
+            disabled={page * pageSize >= filteredPayments.length}
+            onClick={() => setPage(prev => prev + 1)}
+          >
+            Next
+          </Button>
+        </div>
       </CardContent>
     </Card>
   )

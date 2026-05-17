@@ -11,7 +11,7 @@ export type Primitive =
   | null
   | undefined
 
-export type WithId<TValue extends object = {}> = TValue & {
+export type WithId<TValue extends object = object> = TValue & {
   id: string
 }
 

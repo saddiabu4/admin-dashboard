@@ -1,16 +1,11 @@
-import { useMutation } from '@tanstack/react-query'
-
 import { UserPlus } from 'lucide-react'
-
-import { toast } from 'sonner'
-
-import type { UserSchema } from '../schema'
 
 import { UserForm } from './user-form'
 
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -31,28 +26,14 @@ export function CreateUserDialog() {
       <DialogContent className="sm:max-w-lg">
         <DialogHeader>
           <DialogTitle>Create User</DialogTitle>
+
+          <DialogDescription>
+            Enter the new user details and assign their roles.
+          </DialogDescription>
         </DialogHeader>
 
         <UserForm />
       </DialogContent>
     </Dialog>
   )
-}
-
-export function useCreateUser() {
-  return useMutation({
-    mutationFn: async (values: UserSchema) => {
-      await new Promise(resolve => setTimeout(resolve, 600))
-
-      return values
-    },
-
-    onSuccess: () => {
-      toast.success('User created successfully')
-    },
-
-    onError: () => {
-      toast.error('Failed to create user')
-    },
-  })
 }

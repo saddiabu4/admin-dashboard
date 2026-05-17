@@ -1,12 +1,20 @@
+import { useState } from 'react'
+
 import { CreditCard } from 'lucide-react'
 
 import { PaymentsTable } from '@/features/payments/components/payments-table'
+
+import { useDebounce } from '@/shared/hooks/use-debounce'
 
 import { Card, CardContent } from '@/shared/ui/card'
 
 import { Input } from '@/shared/ui/input'
 
 export function PaymentsPage() {
+  const [search, setSearch] = useState('')
+
+  const debouncedSearch = useDebounce(search)
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
@@ -18,7 +26,7 @@ export function PaymentsPage() {
           </p>
         </div>
 
-        <Card className="w-full sm:w-[220px]">
+        <Card className="w-full sm:w-56">
           <CardContent className="flex items-center gap-4 p-4">
             <div className="bg-primary/10 flex size-12 items-center justify-center rounded-2xl">
               <CreditCard className="text-primary size-6" />
@@ -34,10 +42,15 @@ export function PaymentsPage() {
       </div>
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-        <Input placeholder="Search payments..." className="max-w-sm" />
+        <Input
+          placeholder="Search payments..."
+          className="max-w-sm"
+          value={search}
+          onChange={event => setSearch(event.target.value)}
+        />
       </div>
 
-      <PaymentsTable />
+      <PaymentsTable search={debouncedSearch} />
     </div>
   )
 }

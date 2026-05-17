@@ -5,6 +5,7 @@ import { UserForm } from './user-form'
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -36,6 +37,10 @@ export function EditUserDialog({ user }: EditUserDialogProps) {
       <DialogContent className="sm:max-w-lg">
         <DialogHeader>
           <DialogTitle>Edit User</DialogTitle>
+
+          <DialogDescription>
+            Update the selected user details and permissions.
+          </DialogDescription>
         </DialogHeader>
 
         <UserForm
