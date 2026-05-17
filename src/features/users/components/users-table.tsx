@@ -1,6 +1,10 @@
+import { useState } from 'react'
+
 import { useUsers } from '../hooks/use-users'
 
 import { Badge } from '@/shared/ui/badge'
+
+import { Button } from '@/shared/ui/button'
 
 import { Card, CardContent } from '@/shared/ui/card'
 
@@ -28,6 +32,10 @@ type UsersTableProps = {
 export function UsersTable({ search }: UsersTableProps) {
   const { data, isLoading } = useUsers()
 
+  const [page, setPage] = useState(1)
+
+  const pageSize = 10
+
   const filteredUsers =
     data?.filter(user => {
       const fullName = `${user.firstName} ${user.lastName}`
@@ -37,6 +45,11 @@ export function UsersTable({ search }: UsersTableProps) {
         user.email.toLowerCase().includes(search.toLowerCase())
       )
     }) ?? []
+
+  const paginatedUsers = filteredUsers.slice(
+    (page - 1) * pageSize,
+    page * pageSize,
+  )
 
   if (!filteredUsers.length) {
     return (
@@ -68,7 +81,7 @@ export function UsersTable({ search }: UsersTableProps) {
           </TableHeader>
 
           <TableBody>
-            {filteredUsers.map(user => (
+            {paginatedUsers.map(user => (
               <TableRow key={user.id}>
                 <TableCell className="font-medium">
                   {user.firstName} {user.lastName}
@@ -99,6 +112,26 @@ export function UsersTable({ search }: UsersTableProps) {
             ))}
           </TableBody>
         </Table>
+
+        <div className="flex items-center justify-end gap-3 border-t p-4">
+          <Button
+            variant="outline"
+            disabled={page === 1}
+            onClick={() => setPage(prev => prev - 1)}
+          >
+            Previous
+          </Button>
+
+          <span className="text-sm font-medium">Page {page}</span>
+
+          <Button
+            variant="outline"
+            disabled={page * pageSize >= filteredUsers.length}
+            onClick={() => setPage(prev => prev + 1)}
+          >
+            Next
+          </Button>
+        </div>
       </CardContent>
     </Card>
   )
