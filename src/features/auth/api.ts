@@ -42,6 +42,19 @@ const mockUsers = [
 
     roles: ['REPORTS'] as const,
   },
+  {
+    id: '4',
+
+    firstName: 'Simple',
+
+    lastName: 'User',
+
+    email: 'user@test.com',
+
+    password: 'User@1234',
+
+    roles: [],
+  },
 ]
 
 export async function login(payload: LoginPayload): Promise<LoginResponse> {
