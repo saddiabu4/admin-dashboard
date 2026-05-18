@@ -18,19 +18,21 @@ export function PaymentsPage() {
   return (
     <div className="space-y-8">
       <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
-        <div>
-          <h1 className="text-4xl font-black tracking-tight">Payments</h1>
+        <div className="min-w-0">
+          <h1 className="text-3xl font-black tracking-tight sm:text-4xl">
+            Payments
+          </h1>
 
-          <p className="text-muted-foreground mt-3 text-base">
+          <p className="text-muted-foreground mt-3 text-sm sm:text-base">
             Track and manage all payment transactions.
           </p>
         </div>
 
         <Card className="border-border/50 bg-background/70 w-full overflow-hidden border shadow-sm backdrop-blur-xl sm:w-64">
-          <CardContent className="relative flex items-center gap-4 p-5">
-            <div className="absolute right-[-20px] top-[-20px] h-20 w-20 rounded-full bg-indigo-500/10 blur-3xl" />
+          <CardContent className="relative flex items-center gap-3 p-4 sm:gap-4 sm:p-5">
+            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-indigo-500/10 blur-3xl" />
 
-            <div className="flex size-14 items-center justify-center rounded-3xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/30">
+            <div className="flex size-12 items-center justify-center rounded-3xl bg-linear-to-br from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/30 sm:size-14">
               <CreditCard className="size-7" />
             </div>
 

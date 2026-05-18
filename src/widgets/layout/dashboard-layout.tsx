@@ -15,10 +15,10 @@ export function DashboardLayout({ children }: PropsWithChildren) {
         <div className="absolute bottom-[-250px] right-[-200px] h-[500px] w-[500px] rounded-full bg-purple-500/10 blur-3xl" />
       </div>
 
-      <div className="relative z-10 ml-72 flex flex-1 flex-col">
+      <div className="relative z-10 flex flex-1 flex-col lg:ml-72">
         <Header />
 
-        <main className="flex-1 overflow-y-auto p-6">{children}</main>
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6">{children}</main>
       </div>
     </div>
   )

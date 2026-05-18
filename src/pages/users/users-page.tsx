@@ -15,10 +15,10 @@ export function UsersPage() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-        <div>
-          <h1 className="text-3xl font-bold">Users</h1>
+        <div className="min-w-0">
+          <h1 className="text-2xl font-bold sm:text-3xl">Users</h1>
 
-          <p className="text-muted-foreground mt-2">
+          <p className="text-muted-foreground mt-2 text-sm sm:text-base">
             Manage platform users and permissions.
           </p>
         </div>
@@ -29,7 +29,7 @@ export function UsersPage() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
         <Input
           placeholder="Search users..."
-          className="max-w-sm"
+          className="w-full max-w-sm"
           value={search}
           onChange={event => setSearch(event.target.value)}
         />

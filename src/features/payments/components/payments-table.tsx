@@ -65,9 +65,9 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
 
               <TableHead>Amount</TableHead>
 
-              <TableHead>Status</TableHead>
+              <TableHead className="hidden sm:table-cell">Status</TableHead>
 
-              <TableHead>Date</TableHead>
+              <TableHead className="hidden md:table-cell">Date</TableHead>
             </TableRow>
           </TableHeader>
 
@@ -76,14 +76,14 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
               <TableRow key={payment.id}>
                 <TableCell className="font-semibold">
                   <div className="flex items-center gap-3">
-                    <div className="flex size-10 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 text-sm font-bold text-white shadow-md shadow-indigo-500/20">
+                    <div className="flex size-9 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-indigo-500 to-purple-600 text-sm font-bold text-white shadow-md shadow-indigo-500/20 sm:size-10">
                       {payment.customer[0]}
                     </div>
 
-                    <div>
+                    <div className="min-w-0">
                       <p className="font-semibold">{payment.customer}</p>
 
-                      <p className="text-muted-foreground text-xs">
+                      <p className="text-muted-foreground truncate text-xs">
                         Payment Client
                       </p>
                     </div>
@@ -96,7 +96,7 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
                   </span>
                 </TableCell>
 
-                <TableCell>
+                <TableCell className="hidden sm:table-cell">
                   <Badge
                     className={
                       payment.status === 'Paid'
@@ -108,7 +108,7 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
                   </Badge>
                 </TableCell>
 
-                <TableCell className="text-muted-foreground">
+                <TableCell className="text-muted-foreground hidden md:table-cell">
                   {payment.date}
                 </TableCell>
               </TableRow>
@@ -116,7 +116,7 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
           </TableBody>
         </Table>
 
-        <div className="border-border/50 flex items-center justify-between border-t p-5">
+        <div className="border-border/50 flex flex-col gap-4 border-t p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
           <div className="text-muted-foreground text-sm">
             Showing{' '}
             <span className="font-semibold text-foreground">
@@ -125,21 +125,23 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
             payments
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <Button
               variant="outline"
+              size="sm"
               disabled={page === 1}
               onClick={() => setPage(prev => prev - 1)}
             >
               Previous
             </Button>
 
-            <div className="bg-background/70 border-border/50 rounded-2xl border px-4 py-2 text-sm font-semibold shadow-sm backdrop-blur-xl">
+            <div className="bg-background/70 border-border/50 rounded-2xl border px-3 py-2 text-sm font-semibold shadow-sm backdrop-blur-xl sm:px-4">
               Page {page}
             </div>
 
             <Button
               variant="outline"
+              size="sm"
               disabled={page * pageSize >= filteredPayments.length}
               onClick={() => setPage(prev => prev + 1)}
             >

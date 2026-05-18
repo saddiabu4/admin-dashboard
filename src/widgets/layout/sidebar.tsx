@@ -37,7 +37,7 @@ function SidebarContent() {
                 'group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition-all duration-300 hover:bg-indigo-500/10',
 
                 isActive &&
-                  'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/20',
+                  'bg-linear-to-r from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/20',
               )
             }
           >
@@ -53,8 +53,8 @@ function SidebarContent() {
 
 function SidebarHeader() {
   return (
-    <div className="border-border/50 flex h-16 items-center gap-4 border-b px-6">
-      <div className="flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 text-lg font-bold text-white shadow-lg shadow-indigo-500/30">
+    <div className="border-border/50 flex h-16 items-center gap-3 border-b px-4 sm:gap-4 sm:px-6">
+      <div className="flex size-12 items-center justify-center rounded-2xl bg-linear-to-br from-indigo-500 to-purple-600 text-lg font-bold text-white shadow-lg shadow-indigo-500/30">
         A
       </div>
 
@@ -88,7 +88,7 @@ export function Sidebar() {
 
           <SheetContent
             side="left"
-            className="bg-background/95 w-72 border-r p-0 backdrop-blur-xl"
+            className="bg-background/95 w-[min(18rem,calc(100vw-1rem))] border-r p-0 backdrop-blur-xl"
           >
             <SidebarHeader />
 

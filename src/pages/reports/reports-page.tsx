@@ -46,24 +46,26 @@ export function ReportsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">Reports</h1>
+        <h1 className="text-2xl font-bold sm:text-3xl">Reports</h1>
 
-        <p className="text-muted-foreground mt-2">
+        <p className="text-muted-foreground mt-2 text-sm sm:text-base">
           Analytics and revenue insights overview.
         </p>
       </div>
 
       <Card>
-        <CardContent className="p-6">
+        <CardContent className="p-4 sm:p-6">
           <div className="mb-6">
-            <h2 className="text-xl font-semibold">Revenue Overview</h2>
+            <h2 className="text-lg font-semibold sm:text-xl">
+              Revenue Overview
+            </h2>
 
             <p className="text-muted-foreground text-sm">
               Monthly revenue analytics
             </p>
           </div>
 
-          <div className="h-96 w-full">
+          <div className="h-72 w-full sm:h-96">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={data}>
                 <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
