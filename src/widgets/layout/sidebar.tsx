@@ -34,7 +34,7 @@ function SidebarContent() {
             to={item.href}
             className={({ isActive }) =>
               cn(
-                'group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition-all duration-300 hover:bg-indigo-500/10 hover:text-indigo-500',
+                'group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition-all duration-300 hover:bg-indigo-500/10',
 
                 isActive &&
                   'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/20',
