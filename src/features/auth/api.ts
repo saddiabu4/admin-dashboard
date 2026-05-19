@@ -1,5 +1,7 @@
 import type { LoginPayload, LoginResponse } from './types'
 
+import i18next from '@/shared/i18n/i18n'
+
 const mockUsers = [
   {
     id: '1',
@@ -65,7 +67,7 @@ export async function login(payload: LoginPayload): Promise<LoginResponse> {
   )
 
   if (!user) {
-    throw new Error('Invalid email or password')
+    throw new Error(i18next.t('auth.errors.invalidCredentials'))
   }
 
   return {

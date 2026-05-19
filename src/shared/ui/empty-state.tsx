@@ -1,5 +1,7 @@
 import { SearchX } from 'lucide-react'
 
+import { useTranslation } from 'react-i18next'
+
 type EmptyStateProps = {
   title?: string
 
@@ -7,20 +9,22 @@ type EmptyStateProps = {
 }
 
 export function EmptyState({
-  title = 'No results found',
+  title,
 
-  description = 'Try adjusting your search or filters.',
+  description,
 }: EmptyStateProps) {
+  const { t } = useTranslation()
+
   return (
     <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed py-16 text-center">
       <div className="bg-muted mb-4 flex size-14 items-center justify-center rounded-2xl">
         <SearchX className="text-muted-foreground size-7" />
       </div>
 
-      <h3 className="text-lg font-semibold">{title}</h3>
+      <h3 className="text-lg font-semibold">{title ?? t('common.noResultsTitle')}</h3>
 
       <p className="text-muted-foreground mt-2 max-w-sm text-sm">
-        {description}
+        {description ?? t('common.noResultsDescription')}
       </p>
     </div>
   )

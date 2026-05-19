@@ -1,0 +1,179 @@
+{
+  "app": {
+    "name": "Admin Panel"
+  },
+  "language": {
+    "label": "Language",
+    "english": "English",
+    "russian": "Russian",
+    "uzbek": "Uzbek"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "payments": "Payments",
+    "reports": "Reports"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to access your admin dashboard",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "emailPlaceholder": "admin@test.com",
+      "passwordPlaceholder": "********",
+      "button": "Login",
+      "loading": "Logging in..."
+    },
+    "errors": {
+      "invalidEmail": "Invalid email",
+      "passwordLength": "Password must be at least 8 characters",
+      "invalidCredentials": "Invalid email or password"
+    },
+    "toast": {
+      "success": "Successfully logged in"
+    }
+  },
+  "header": {
+    "welcomeBack": "Welcome back",
+    "logout": "Log out"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "description": "Welcome to your enterprise admin dashboard overview.",
+    "stats": {
+      "totalUsers": "Total Users",
+      "revenue": "Revenue",
+      "payments": "Payments",
+      "reports": "Reports"
+    },
+    "analytics": {
+      "title": "Analytics Overview",
+      "description": "Revenue and platform activity insights",
+      "chart": "Analytics Chart"
+    },
+    "activity": {
+      "title": "Recent Activity",
+      "description": "Latest system updates",
+      "items": {
+        "payment": "New payment received",
+        "user": "New user registered",
+        "report": "Report generated"
+      },
+      "timestamps": {
+        "payment": "2m ago",
+        "user": "10m ago",
+        "report": "30m ago"
+      }
+    }
+  },
+  "users": {
+    "page": {
+      "title": "Users",
+      "description": "Manage platform users and permissions.",
+      "searchPlaceholder": "Search users..."
+    },
+    "dialog": {
+      "createTitle": "Create User",
+      "createDescription": "Enter the new user details and assign their roles.",
+      "editTitle": "Edit User",
+      "editDescription": "Update the selected user details and permissions.",
+      "deleteTitle": "Delete User",
+      "deleteDescription": "Are you sure you want to delete {{name}}? This action cannot be undone."
+    },
+    "form": {
+      "firstNameLabel": "First Name",
+      "lastNameLabel": "Last Name",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "firstNamePlaceholder": "John",
+      "lastNamePlaceholder": "Doe",
+      "emailPlaceholder": "john@example.com",
+      "passwordPlaceholder": "••••••••"
+    },
+    "table": {
+      "name": "Name",
+      "email": "Email",
+      "roles": "Roles",
+      "actions": "Actions",
+      "userAccount": "User Account",
+      "showing": "Showing",
+      "usersCount": "users",
+      "page": "Page",
+      "previous": "Previous",
+      "next": "Next",
+      "noUsersTitle": "No users found",
+      "noUsersDescription": "Try searching with a different keyword.",
+      "loading": "Loading users..."
+    },
+    "actions": {
+      "create": "Create User",
+      "edit": "Edit",
+      "delete": "Delete",
+      "save": "Save User",
+      "cancel": "Cancel"
+    },
+    "toast": {
+      "created": "User created successfully",
+      "createFailed": "Failed to create user"
+    }
+  },
+  "payments": {
+    "page": {
+      "title": "Payments",
+      "description": "Track and manage all payment transactions.",
+      "searchPlaceholder": "Search payments...",
+      "totalRevenue": "Total Revenue"
+    },
+    "table": {
+      "customer": "Customer",
+      "amount": "Amount",
+      "status": "Status",
+      "date": "Date",
+      "paymentClient": "Payment Client",
+      "showing": "Showing",
+      "paymentsCount": "payments",
+      "page": "Page",
+      "previous": "Previous",
+      "next": "Next",
+      "noPaymentsTitle": "No payments found",
+      "noPaymentsDescription": "Try searching with a different keyword.",
+      "loading": "Loading payments..."
+    },
+    "status": {
+      "paid": "Paid",
+      "pending": "Pending"
+    }
+  },
+  "reports": {
+    "page": {
+      "title": "Reports",
+      "description": "Analytics and revenue insights overview.",
+      "revenueOverview": "Revenue Overview",
+      "monthlyRevenue": "Monthly revenue analytics"
+    },
+    "chart": {
+      "label": "Reports"
+    }
+  },
+  "pages": {
+    "notFound": {
+      "title": "Page not found",
+      "description": "The page you are looking for does not exist or may have been moved.",
+      "action": "Go back dashboard"
+    },
+    "forbidden": {
+      "title": "403 Forbidden"
+    }
+  },
+  "common": {
+    "noResultsTitle": "No results found",
+    "noResultsDescription": "Try adjusting your search or filters.",
+    "loading": "Loading..."
+  },
+  "roles": {
+    "admin": "Admin",
+    "payment": "Payment",
+    "reports": "Reports"
+  }
+}

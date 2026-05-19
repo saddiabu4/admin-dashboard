@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
+import { useTranslation } from 'react-i18next'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { useForm } from 'react-hook-form'
@@ -27,6 +29,8 @@ import { Input } from '@/shared/ui/input'
 
 export function LoginForm() {
   const navigate = useNavigate()
+
+  const { t } = useTranslation()
 
   const { mutate, isPending } = useLogin()
 
@@ -57,6 +61,9 @@ export function LoginForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-slate-200">Email</FormLabel>
+              <FormLabel className="text-slate-200">
+                {t('auth.login.emailLabel')}
+              </FormLabel>
 
               <FormControl>
                 <div className="relative">
@@ -64,7 +71,7 @@ export function LoginForm() {
 
                   <Input
                     type="email"
-                    placeholder="admin@test.com"
+                    placeholder={t('auth.login.emailPlaceholder')}
                     className="h-12 rounded-xl border-white/10 bg-white/5 pl-11 text-white placeholder:text-slate-400 focus-visible:ring-indigo-500"
                     {...field}
                   />
@@ -82,6 +89,9 @@ export function LoginForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-slate-200">Password</FormLabel>
+              <FormLabel className="text-slate-200">
+                {t('auth.login.passwordLabel')}
+              </FormLabel>
 
               <FormControl>
                 <div className="relative">
@@ -89,7 +99,7 @@ export function LoginForm() {
 
                   <Input
                     type="password"
-                    placeholder="********"
+                    placeholder={t('auth.login.passwordPlaceholder')}
                     className="h-12 rounded-xl border-white/10 bg-white/5 pl-11 text-white placeholder:text-slate-400 focus-visible:ring-indigo-500"
                     {...field}
                   />
@@ -109,10 +119,10 @@ export function LoginForm() {
           {isPending ? (
             <>
               <Loader2 className="size-4 animate-spin" />
-              Logging in...
+              {t('auth.login.loading')}
             </>
           ) : (
-            'Login'
+            t('auth.login.button')
           )}
         </Button>
       </form>

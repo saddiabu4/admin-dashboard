@@ -1,10 +1,12 @@
 import { CreditCard, DollarSign, FileText, Users } from 'lucide-react'
 
+import { useTranslation } from 'react-i18next'
+
 import { Card, CardContent } from '@/shared/ui/card'
 
 const stats = [
   {
-    title: 'Total Users',
+    titleKey: 'dashboard.stats.totalUsers',
 
     value: '2,450',
 
@@ -12,7 +14,7 @@ const stats = [
   },
 
   {
-    title: 'Revenue',
+    titleKey: 'dashboard.stats.revenue',
 
     value: '$48,920',
 
@@ -20,7 +22,7 @@ const stats = [
   },
 
   {
-    title: 'Payments',
+    titleKey: 'dashboard.stats.payments',
 
     value: '1,240',
 
@@ -28,7 +30,7 @@ const stats = [
   },
 
   {
-    title: 'Reports',
+    titleKey: 'dashboard.stats.reports',
 
     value: '320',
 
@@ -37,13 +39,17 @@ const stats = [
 ]
 
 export function DashboardPage() {
+  const { t } = useTranslation()
+
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-4xl font-black tracking-tight">Dashboard</h1>
+        <h1 className="text-4xl font-black tracking-tight">
+          {t('dashboard.title')}
+        </h1>
 
         <p className="text-muted-foreground mt-3 text-base">
-          Welcome to your enterprise admin dashboard overview.
+          {t('dashboard.description')}
         </p>
       </div>
 
@@ -53,7 +59,7 @@ export function DashboardPage() {
 
           return (
             <Card
-              key={item.title}
+              key={item.titleKey}
               className="group border-border/50 bg-background/70 relative overflow-hidden border shadow-sm backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10"
             >
               <CardContent className="relative flex items-center justify-between p-6">
@@ -61,7 +67,7 @@ export function DashboardPage() {
 
                 <div className="space-y-2">
                   <p className="text-muted-foreground text-xs font-medium uppercase tracking-wider">
-                    {item.title}
+                    {t(item.titleKey)}
                   </p>
 
                   <h2 className="text-4xl font-black tracking-tight">
@@ -83,17 +89,17 @@ export function DashboardPage() {
           <CardContent className="p-6">
             <div className="mb-6">
               <h3 className="text-xl font-bold tracking-tight">
-                Analytics Overview
+                {t('dashboard.analytics.title')}
               </h3>
 
               <p className="text-muted-foreground mt-1 text-sm">
-                Revenue and platform activity insights
+                {t('dashboard.analytics.description')}
               </p>
             </div>
 
             <div className="bg-muted/50 border-border/50 flex h-72 items-center justify-center rounded-3xl border">
               <span className="text-muted-foreground text-sm">
-                Analytics Chart
+                {t('dashboard.analytics.chart')}
               </span>
             </div>
           </CardContent>
@@ -103,33 +109,43 @@ export function DashboardPage() {
           <CardContent className="p-6">
             <div className="mb-6">
               <h3 className="text-xl font-bold tracking-tight">
-                Recent Activity
+                {t('dashboard.activity.title')}
               </h3>
 
               <p className="text-muted-foreground mt-1 text-sm">
-                Latest system updates
+                {t('dashboard.activity.description')}
               </p>
             </div>
 
             <div className="space-y-4">
               <div className="hover:bg-muted/50 border-border/50 flex items-center justify-between rounded-2xl border p-4 transition-colors">
                 <span className="text-sm font-medium">
-                  New payment received
+                  {t('dashboard.activity.items.payment')}
                 </span>
 
-                <span className="text-muted-foreground text-xs">2m ago</span>
+                <span className="text-muted-foreground text-xs">
+                  {t('dashboard.activity.timestamps.payment')}
+                </span>
               </div>
 
               <div className="hover:bg-muted/50 border-border/50 flex items-center justify-between rounded-2xl border p-4 transition-colors">
-                <span className="text-sm font-medium">New user registered</span>
+                <span className="text-sm font-medium">
+                  {t('dashboard.activity.items.user')}
+                </span>
 
-                <span className="text-muted-foreground text-xs">10m ago</span>
+                <span className="text-muted-foreground text-xs">
+                  {t('dashboard.activity.timestamps.user')}
+                </span>
               </div>
 
               <div className="hover:bg-muted/50 border-border/50 flex items-center justify-between rounded-2xl border p-4 transition-colors">
-                <span className="text-sm font-medium">Report generated</span>
+                <span className="text-sm font-medium">
+                  {t('dashboard.activity.items.report')}
+                </span>
 
-                <span className="text-muted-foreground text-xs">30m ago</span>
+                <span className="text-muted-foreground text-xs">
+                  {t('dashboard.activity.timestamps.report')}
+                </span>
               </div>
             </div>
           </CardContent>

@@ -1,10 +1,14 @@
 import { ShieldCheck } from 'lucide-react'
 
+import { useTranslation } from 'react-i18next'
+
 import { LoginForm } from '@/features/auth/components/login-form'
 
 import { Card, CardContent } from '@/shared/ui/card'
 
 export function LoginPage() {
+  const { t } = useTranslation()
+
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 px-4">
       <div className="absolute inset-0">
@@ -22,11 +26,11 @@ export function LoginPage() {
 
             <div>
               <h1 className="text-4xl font-bold tracking-tight text-white">
-                Welcome Back
+                {t('auth.login.title')}
               </h1>
 
               <p className="mt-3 text-sm text-slate-300">
-                Sign in to access your admin dashboard
+                {t('auth.login.subtitle')}
               </p>
             </div>
           </div>

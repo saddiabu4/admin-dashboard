@@ -2,6 +2,8 @@ import { Menu } from 'lucide-react'
 
 import { NavLink } from 'react-router-dom'
 
+import { useTranslation } from 'react-i18next'
+
 import { useAuthStore } from '@/features/auth/store'
 
 import { Button } from '@/shared/ui/button'
@@ -13,6 +15,8 @@ import { Sheet, SheetContent, SheetTrigger } from '@/shared/ui/sheet'
 import { navigation } from './navigation'
 
 function SidebarContent() {
+  const { t } = useTranslation()
+
   const user = useAuthStore(state => state.user)
 
   const filteredNavigation = navigation.filter(item => {
@@ -43,7 +47,7 @@ function SidebarContent() {
           >
             <Icon className="size-5 transition-transform duration-300 group-hover:scale-110" />
 
-            {item.label}
+            {t(item.labelKey)}
           </NavLink>
         )
       })}
@@ -52,6 +56,8 @@ function SidebarContent() {
 }
 
 function SidebarHeader() {
+  const { t } = useTranslation()
+
   return (
     <div className="border-border/50 flex h-16 items-center gap-3 border-b px-4 sm:gap-4 sm:px-6">
       <div className="flex size-12 items-center justify-center rounded-2xl bg-linear-to-br from-indigo-500 to-purple-600 text-lg font-bold text-white shadow-lg shadow-indigo-500/30">
@@ -59,7 +65,7 @@ function SidebarHeader() {
       </div>
 
       <div>
-        <h2 className="text-lg font-bold tracking-tight">Admin Panel</h2>
+        <h2 className="text-lg font-bold tracking-tight">{t('app.name')}</h2>
       </div>
     </div>
   )

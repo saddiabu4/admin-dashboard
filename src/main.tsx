@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom/client'
 
 import '@/app/styles/globals.css'
 
+import '@/shared/i18n/i18n'
+
 import { AppProviders } from '@/app/providers'
 
 import { AppRouter } from '@/app/router/app-router'

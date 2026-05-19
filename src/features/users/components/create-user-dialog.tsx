@@ -1,5 +1,7 @@
 import { UserPlus } from 'lucide-react'
 
+import { useTranslation } from 'react-i18next'
+
 import { UserForm } from './user-form'
 
 import {
@@ -14,12 +16,14 @@ import {
 import { Button } from '@/shared/ui/button'
 
 export function CreateUserDialog() {
+  const { t } = useTranslation()
+
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button className="h-11 px-5 text-sm font-semibold shadow-lg shadow-indigo-500/20">
           <UserPlus className="size-4" />
-          Create User
+          {t('users.actions.create')}
         </Button>
       </DialogTrigger>
 
@@ -31,11 +35,11 @@ export function CreateUserDialog() {
 
           <div>
             <DialogTitle className="text-2xl font-bold tracking-tight">
-              Create User
+              {t('users.dialog.createTitle')}
             </DialogTitle>
 
             <DialogDescription className="text-muted-foreground mt-2 text-sm leading-relaxed">
-              Enter the new user details and assign their roles.
+              {t('users.dialog.createDescription')}
             </DialogDescription>
           </div>
         </DialogHeader>

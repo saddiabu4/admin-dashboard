@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import { useTranslation } from 'react-i18next'
+
 import { useUsers } from '../hooks/use-users'
 
 import { Badge } from '@/shared/ui/badge'
@@ -32,6 +34,8 @@ type UsersTableProps = {
 export function UsersTable({ search }: UsersTableProps) {
   const { data, isLoading } = useUsers()
 
+  const { t } = useTranslation()
+
   const [page, setPage] = useState(1)
 
   const pageSize = 10
@@ -54,14 +58,14 @@ export function UsersTable({ search }: UsersTableProps) {
   if (!filteredUsers.length) {
     return (
       <EmptyState
-        title="No users found"
-        description="Try searching with a different keyword."
+        title={t('users.table.noUsersTitle')}
+        description={t('users.table.noUsersDescription')}
       />
     )
   }
 
   if (isLoading) {
-    return <Loading text="Loading users..." />
+    return <Loading text={t('users.table.loading')} />
   }
 
   return (
@@ -70,13 +74,19 @@ export function UsersTable({ search }: UsersTableProps) {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Name</TableHead>
+              <TableHead>{t('users.table.name')}</TableHead>
 
-              <TableHead className="hidden md:table-cell">Email</TableHead>
+              <TableHead className="hidden md:table-cell">
+                {t('users.table.email')}
+              </TableHead>
 
-              <TableHead className="hidden sm:table-cell">Roles</TableHead>
+              <TableHead className="hidden sm:table-cell">
+                {t('users.table.roles')}
+              </TableHead>
 
-              <TableHead className="text-right">Actions</TableHead>
+              <TableHead className="text-right">
+                {t('users.table.actions')}
+              </TableHead>
             </TableRow>
           </TableHeader>
 
@@ -96,7 +106,7 @@ export function UsersTable({ search }: UsersTableProps) {
                       </p>
 
                       <p className="text-muted-foreground truncate text-xs">
-                        User Account
+                        {t('users.table.userAccount')}
                       </p>
                     </div>
                   </div>
@@ -114,7 +124,7 @@ export function UsersTable({ search }: UsersTableProps) {
                         variant="secondary"
                         className="rounded-xl border border-indigo-500/10 bg-indigo-500/10 px-3 py-1 text-xs font-medium text-indigo-500"
                       >
-                        {role}
+                        {t(`roles.${role.toLowerCase()}`)}
                       </Badge>
                     ))}
                   </div>
@@ -136,11 +146,11 @@ export function UsersTable({ search }: UsersTableProps) {
 
         <div className="border-border/50 flex flex-col gap-4 border-t p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
           <div className="text-muted-foreground text-sm">
-            Showing{' '}
+            {t('users.table.showing')}{' '}
             <span className="font-semibold text-foreground">
               {paginatedUsers.length}
             </span>{' '}
-            users
+            {t('users.table.usersCount')}
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3">
@@ -150,11 +160,11 @@ export function UsersTable({ search }: UsersTableProps) {
               disabled={page === 1}
               onClick={() => setPage(prev => prev - 1)}
             >
-              Previous
+              {t('users.table.previous')}
             </Button>
 
             <div className="bg-background/70 border-border/50 rounded-2xl border px-3 py-2 text-sm font-semibold shadow-sm backdrop-blur-xl sm:px-4">
-              Page {page}
+              {t('users.table.page')} {page}
             </div>
 
             <Button
@@ -163,7 +173,7 @@ export function UsersTable({ search }: UsersTableProps) {
               disabled={page * pageSize >= filteredUsers.length}
               onClick={() => setPage(prev => prev + 1)}
             >
-              Next
+              {t('users.table.next')}
             </Button>
           </div>
         </div>

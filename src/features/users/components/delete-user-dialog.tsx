@@ -1,5 +1,7 @@
 import { Trash2 } from 'lucide-react'
 
+import { useTranslation } from 'react-i18next'
+
 import {
   Dialog,
   DialogContent,
@@ -16,6 +18,8 @@ type DeleteUserDialogProps = {
 }
 
 export function DeleteUserDialog({ userName }: DeleteUserDialogProps) {
+  const { t } = useTranslation()
+
   function handleDelete() {
     console.log('delete user')
   }
@@ -36,20 +40,20 @@ export function DeleteUserDialog({ userName }: DeleteUserDialogProps) {
 
           <div>
             <DialogTitle className="text-2xl font-bold tracking-tight">
-              Delete User
+              {t('users.dialog.deleteTitle')}
             </DialogTitle>
 
             <DialogDescription className="text-muted-foreground mt-2 text-sm leading-relaxed">
-              Are you sure you want to delete{' '}
-              <span className="font-semibold text-foreground">{userName}</span>?
-              This action cannot be undone.
+              {t('users.dialog.deleteDescription', {
+                name: <span className="font-semibold text-foreground">{userName}</span>,
+              })}
             </DialogDescription>
           </div>
         </DialogHeader>
 
         <div className="flex justify-end gap-3 pt-2">
           <Button variant="outline" className="min-w-24">
-            Cancel
+            {t('users.actions.cancel')}
           </Button>
 
           <Button
@@ -57,7 +61,7 @@ export function DeleteUserDialog({ userName }: DeleteUserDialogProps) {
             onClick={handleDelete}
             className="min-w-24"
           >
-            Delete
+            {t('users.actions.delete')}
           </Button>
         </div>
       </DialogContent>

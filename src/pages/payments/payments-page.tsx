@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 import { CreditCard, Search } from 'lucide-react'
 
+import { useTranslation } from 'react-i18next'
+
 import { PaymentsTable } from '@/features/payments/components/payments-table'
 
 import { useDebounce } from '@/shared/hooks/use-debounce'
@@ -13,6 +15,8 @@ import { Input } from '@/shared/ui/input'
 export function PaymentsPage() {
   const [search, setSearch] = useState('')
 
+  const { t } = useTranslation()
+
   const debouncedSearch = useDebounce(search)
 
   return (
@@ -20,11 +24,11 @@ export function PaymentsPage() {
       <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
         <div className="min-w-0">
           <h1 className="text-3xl font-black tracking-tight sm:text-4xl">
-            Payments
+            {t('payments.page.title')}
           </h1>
 
           <p className="text-muted-foreground mt-3 text-sm sm:text-base">
-            Track and manage all payment transactions.
+            {t('payments.page.description')}
           </p>
         </div>
 
@@ -38,7 +42,7 @@ export function PaymentsPage() {
 
             <div>
               <p className="text-muted-foreground text-xs font-medium uppercase tracking-wider">
-                Total Revenue
+                {t('payments.page.totalRevenue')}
               </p>
 
               <h3 className="mt-1 text-3xl font-black tracking-tight">
@@ -54,7 +58,7 @@ export function PaymentsPage() {
           <Search className="text-muted-foreground absolute left-4 top-1/2 size-4 -translate-y-1/2" />
 
           <Input
-            placeholder="Search payments..."
+            placeholder={t('payments.page.searchPlaceholder')}
             className="h-12 pl-11"
             value={search}
             onChange={event => setSearch(event.target.value)}

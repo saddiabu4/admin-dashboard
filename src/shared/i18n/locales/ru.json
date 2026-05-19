@@ -1,0 +1,179 @@
+{
+  "app": {
+    "name": "Панель администратора"
+  },
+  "language": {
+    "label": "Язык",
+    "english": "Английский",
+    "russian": "Русский",
+    "uzbek": "Узбекский"
+  },
+  "navigation": {
+    "dashboard": "Панель",
+    "users": "Пользователи",
+    "payments": "Платежи",
+    "reports": "Отчеты"
+  },
+  "auth": {
+    "login": {
+      "title": "С возвращением",
+      "subtitle": "Войдите, чтобы получить доступ к панели администратора",
+      "emailLabel": "Электронная почта",
+      "passwordLabel": "Пароль",
+      "emailPlaceholder": "admin@test.com",
+      "passwordPlaceholder": "********",
+      "button": "Войти",
+      "loading": "Вход..."
+    },
+    "errors": {
+      "invalidEmail": "Неверный адрес электронной почты",
+      "passwordLength": "Пароль должен содержать не менее 8 символов",
+      "invalidCredentials": "Неверный адрес электронной почты или пароль"
+    },
+    "toast": {
+      "success": "Вход выполнен успешно"
+    }
+  },
+  "header": {
+    "welcomeBack": "С возвращением",
+    "logout": "Выйти"
+  },
+  "dashboard": {
+    "title": "Панель",
+    "description": "Обзор вашей корпоративной панели администратора.",
+    "stats": {
+      "totalUsers": "Всего пользователей",
+      "revenue": "Доход",
+      "payments": "Платежи",
+      "reports": "Отчеты"
+    },
+    "analytics": {
+      "title": "Обзор аналитики",
+      "description": "Информация о доходах и активности платформы",
+      "chart": "График аналитики"
+    },
+    "activity": {
+      "title": "Недавняя активность",
+      "description": "Последние обновления системы",
+      "items": {
+        "payment": "Получен новый платеж",
+        "user": "Зарегистрирован новый пользователь",
+        "report": "Отчет сформирован"
+      },
+      "timestamps": {
+        "payment": "2 мин назад",
+        "user": "10 мин назад",
+        "report": "30 мин назад"
+      }
+    }
+  },
+  "users": {
+    "page": {
+      "title": "Пользователи",
+      "description": "Управляйте пользователями платформы и их правами.",
+      "searchPlaceholder": "Поиск пользователей..."
+    },
+    "dialog": {
+      "createTitle": "Создать пользователя",
+      "createDescription": "Введите данные нового пользователя и назначьте ему роли.",
+      "editTitle": "Редактировать пользователя",
+      "editDescription": "Обновите данные выбранного пользователя и его права.",
+      "deleteTitle": "Удалить пользователя",
+      "deleteDescription": "Вы уверены, что хотите удалить {{name}}? Это действие нельзя отменить."
+    },
+    "form": {
+      "firstNameLabel": "Имя",
+      "lastNameLabel": "Фамилия",
+      "emailLabel": "Электронная почта",
+      "passwordLabel": "Пароль",
+      "firstNamePlaceholder": "Иван",
+      "lastNamePlaceholder": "Иванов",
+      "emailPlaceholder": "ivan@example.com",
+      "passwordPlaceholder": "••••••••"
+    },
+    "table": {
+      "name": "Имя",
+      "email": "Эл. почта",
+      "roles": "Роли",
+      "actions": "Действия",
+      "userAccount": "Аккаунт пользователя",
+      "showing": "Показано",
+      "usersCount": "пользователей",
+      "page": "Страница",
+      "previous": "Назад",
+      "next": "Вперед",
+      "noUsersTitle": "Пользователи не найдены",
+      "noUsersDescription": "Попробуйте другой поисковый запрос.",
+      "loading": "Загрузка пользователей..."
+    },
+    "actions": {
+      "create": "Создать пользователя",
+      "edit": "Редактировать",
+      "delete": "Удалить",
+      "save": "Сохранить пользователя",
+      "cancel": "Отмена"
+    },
+    "toast": {
+      "created": "Пользователь успешно создан",
+      "createFailed": "Не удалось создать пользователя"
+    }
+  },
+  "payments": {
+    "page": {
+      "title": "Платежи",
+      "description": "Отслеживайте и управляйте всеми платежными операциями.",
+      "searchPlaceholder": "Поиск платежей...",
+      "totalRevenue": "Общий доход"
+    },
+    "table": {
+      "customer": "Клиент",
+      "amount": "Сумма",
+      "status": "Статус",
+      "date": "Дата",
+      "paymentClient": "Платежный клиент",
+      "showing": "Показано",
+      "paymentsCount": "платежей",
+      "page": "Страница",
+      "previous": "Назад",
+      "next": "Вперед",
+      "noPaymentsTitle": "Платежи не найдены",
+      "noPaymentsDescription": "Попробуйте другой поисковый запрос.",
+      "loading": "Загрузка платежей..."
+    },
+    "status": {
+      "paid": "Оплачено",
+      "pending": "В ожидании"
+    }
+  },
+  "reports": {
+    "page": {
+      "title": "Отчеты",
+      "description": "Обзор аналитики и доходов.",
+      "revenueOverview": "Обзор доходов",
+      "monthlyRevenue": "Ежемесячная аналитика доходов"
+    },
+    "chart": {
+      "label": "Отчеты"
+    }
+  },
+  "pages": {
+    "notFound": {
+      "title": "Страница не найдена",
+      "description": "Страница, которую вы ищете, не существует или была перемещена.",
+      "action": "Вернуться на панель"
+    },
+    "forbidden": {
+      "title": "403 Запрещено"
+    }
+  },
+  "common": {
+    "noResultsTitle": "Результаты не найдены",
+    "noResultsDescription": "Попробуйте изменить запрос или фильтры.",
+    "loading": "Загрузка..."
+  },
+  "roles": {
+    "admin": "Администратор",
+    "payment": "Платежи",
+    "reports": "Отчеты"
+  }
+}

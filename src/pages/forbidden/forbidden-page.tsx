@@ -1,7 +1,11 @@
+import { useTranslation } from 'react-i18next'
+
 export function ForbiddenPage() {
+  const { t } = useTranslation()
+
   return (
     <div className="flex min-h-screen items-center justify-center">
-      403 Forbidden
+      {t('pages.forbidden.title')}
     </div>
   )
 }

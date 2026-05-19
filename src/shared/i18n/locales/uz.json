@@ -1,0 +1,179 @@
+{
+  "app": {
+    "name": "Admin Panel"
+  },
+  "language": {
+    "label": "Til",
+    "english": "Inglizcha",
+    "russian": "Ruscha",
+    "uzbek": "O‘zbekcha"
+  },
+  "navigation": {
+    "dashboard": "Bosh sahifa",
+    "users": "Foydalanuvchilar",
+    "payments": "To‘lovlar",
+    "reports": "Hisobotlar"
+  },
+  "auth": {
+    "login": {
+      "title": "Xush kelibsiz",
+      "subtitle": "Admin panelga kirish uchun tizimga kiring",
+      "emailLabel": "Elektron pochta",
+      "passwordLabel": "Parol",
+      "emailPlaceholder": "admin@test.com",
+      "passwordPlaceholder": "********",
+      "button": "Kirish",
+      "loading": "Kirish..."
+    },
+    "errors": {
+      "invalidEmail": "Noto‘g‘ri elektron pochta",
+      "passwordLength": "Parol kamida 8 ta belgidan iborat bo‘lishi kerak",
+      "invalidCredentials": "Elektron pochta yoki parol noto‘g‘ri"
+    },
+    "toast": {
+      "success": "Muvaffaqiyatli kirdingiz"
+    }
+  },
+  "header": {
+    "welcomeBack": "Xush kelibsiz",
+    "logout": "Chiqish"
+  },
+  "dashboard": {
+    "title": "Bosh sahifa",
+    "description": "Korxona admin panelingizning umumiy ko‘rinishi.",
+    "stats": {
+      "totalUsers": "Jami foydalanuvchilar",
+      "revenue": "Daromad",
+      "payments": "To‘lovlar",
+      "reports": "Hisobotlar"
+    },
+    "analytics": {
+      "title": "Analitika ko‘rinishi",
+      "description": "Daromad va platforma faolligi haqida ma’lumot",
+      "chart": "Analitika diagrammasi"
+    },
+    "activity": {
+      "title": "So‘nggi faollik",
+      "description": "Tizimdagi oxirgi yangilanishlar",
+      "items": {
+        "payment": "Yangi to‘lov qabul qilindi",
+        "user": "Yangi foydalanuvchi ro‘yxatdan o‘tdi",
+        "report": "Hisobot yaratildi"
+      },
+      "timestamps": {
+        "payment": "2 daqiqa oldin",
+        "user": "10 daqiqa oldin",
+        "report": "30 daqiqa oldin"
+      }
+    }
+  },
+  "users": {
+    "page": {
+      "title": "Foydalanuvchilar",
+      "description": "Platforma foydalanuvchilari va ruxsatlarini boshqaring.",
+      "searchPlaceholder": "Foydalanuvchilarni qidirish..."
+    },
+    "dialog": {
+      "createTitle": "Foydalanuvchi yaratish",
+      "createDescription": "Yangi foydalanuvchi ma’lumotlarini kiriting va rollarni belgilang.",
+      "editTitle": "Foydalanuvchini tahrirlash",
+      "editDescription": "Tanlangan foydalanuvchi ma’lumotlari va ruxsatlarini yangilang.",
+      "deleteTitle": "Foydalanuvchini o‘chirish",
+      "deleteDescription": "{{name}} foydalanuvchisini o‘chirishni xohlaysizmi? Bu amalni bekor qilib bo‘lmaydi."
+    },
+    "form": {
+      "firstNameLabel": "Ism",
+      "lastNameLabel": "Familiya",
+      "emailLabel": "Elektron pochta",
+      "passwordLabel": "Parol",
+      "firstNamePlaceholder": "John",
+      "lastNamePlaceholder": "Doe",
+      "emailPlaceholder": "john@example.com",
+      "passwordPlaceholder": "••••••••"
+    },
+    "table": {
+      "name": "Ism",
+      "email": "Elektron pochta",
+      "roles": "Rollar",
+      "actions": "Amallar",
+      "userAccount": "Foydalanuvchi hisobi",
+      "showing": "Ko‘rsatilmoqda",
+      "usersCount": "foydalanuvchi",
+      "page": "Sahifa",
+      "previous": "Oldingi",
+      "next": "Keyingi",
+      "noUsersTitle": "Foydalanuvchilar topilmadi",
+      "noUsersDescription": "Boshqa kalit so‘z bilan qidirib ko‘ring.",
+      "loading": "Foydalanuvchilar yuklanmoqda..."
+    },
+    "actions": {
+      "create": "Foydalanuvchi yaratish",
+      "edit": "Tahrirlash",
+      "delete": "O‘chirish",
+      "save": "Foydalanuvchini saqlash",
+      "cancel": "Bekor qilish"
+    },
+    "toast": {
+      "created": "Foydalanuvchi muvaffaqiyatli yaratildi",
+      "createFailed": "Foydalanuvchini yaratib bo‘lmadi"
+    }
+  },
+  "payments": {
+    "page": {
+      "title": "To‘lovlar",
+      "description": "Barcha to‘lov operatsiyalarini kuzatib boring va boshqaring.",
+      "searchPlaceholder": "To‘lovlarni qidirish...",
+      "totalRevenue": "Jami daromad"
+    },
+    "table": {
+      "customer": "Mijoz",
+      "amount": "Miqdor",
+      "status": "Holat",
+      "date": "Sana",
+      "paymentClient": "To‘lov mijoz",
+      "showing": "Ko‘rsatilmoqda",
+      "paymentsCount": "to‘lov",
+      "page": "Sahifa",
+      "previous": "Oldingi",
+      "next": "Keyingi",
+      "noPaymentsTitle": "To‘lovlar topilmadi",
+      "noPaymentsDescription": "Boshqa kalit so‘z bilan qidirib ko‘ring.",
+      "loading": "To‘lovlar yuklanmoqda..."
+    },
+    "status": {
+      "paid": "To‘langan",
+      "pending": "Kutilmoqda"
+    }
+  },
+  "reports": {
+    "page": {
+      "title": "Hisobotlar",
+      "description": "Analitika va daromad bo‘yicha umumiy ma’lumot.",
+      "revenueOverview": "Daromad ko‘rinishi",
+      "monthlyRevenue": "Oylik daromad analitikasi"
+    },
+    "chart": {
+      "label": "Hisobotlar"
+    }
+  },
+  "pages": {
+    "notFound": {
+      "title": "Sahifa topilmadi",
+      "description": "Siz qidirayotgan sahifa mavjud emas yoki ko‘chirilgan bo‘lishi mumkin.",
+      "action": "Bosh sahifaga qaytish"
+    },
+    "forbidden": {
+      "title": "403 Taqiqlangan"
+    }
+  },
+  "common": {
+    "noResultsTitle": "Natijalar topilmadi",
+    "noResultsDescription": "Qidiruv yoki filtrlarga o‘zgartirish kiriting.",
+    "loading": "Yuklanmoqda..."
+  },
+  "roles": {
+    "admin": "Administrator",
+    "payment": "To‘lov",
+    "reports": "Hisobot"
+  }
+}

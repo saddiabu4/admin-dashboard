@@ -2,10 +2,14 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 import { toast } from 'sonner'
 
+import { useTranslation } from 'react-i18next'
+
 import type { UserSchema } from '../schema'
 
 export function useCreateUser() {
   const queryClient = useQueryClient()
+
+  const { t } = useTranslation()
 
   const mutation = useMutation({
     mutationFn: async (values: UserSchema) => {
@@ -19,11 +23,11 @@ export function useCreateUser() {
         queryKey: ['users'],
       })
 
-      toast.success('User created successfully')
+      toast.success(t('users.toast.created'))
     },
 
     onError: () => {
-      toast.error('Failed to create user')
+      toast.error(t('users.toast.createFailed'))
     },
   })
 

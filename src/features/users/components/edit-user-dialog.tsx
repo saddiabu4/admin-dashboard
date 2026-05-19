@@ -1,5 +1,7 @@
 import { Pencil } from 'lucide-react'
 
+import { useTranslation } from 'react-i18next'
+
 import { UserForm } from './user-form'
 
 import {
@@ -26,6 +28,8 @@ type EditUserDialogProps = {
 }
 
 export function EditUserDialog({ user }: EditUserDialogProps) {
+  const { t } = useTranslation()
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -42,11 +46,11 @@ export function EditUserDialog({ user }: EditUserDialogProps) {
 
           <div>
             <DialogTitle className="text-2xl font-bold tracking-tight">
-              Edit User
+              {t('users.dialog.editTitle')}
             </DialogTitle>
 
             <DialogDescription className="text-muted-foreground mt-2 text-sm leading-relaxed">
-              Update the selected user details and permissions.
+              {t('users.dialog.editDescription')}
             </DialogDescription>
           </div>
         </DialogHeader>

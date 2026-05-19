@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import { useTranslation } from 'react-i18next'
+
 import { usePayments } from '../hooks/use-payments'
 
 import { Badge } from '@/shared/ui/badge'
@@ -28,6 +30,8 @@ type PaymentsTableProps = {
 export function PaymentsTable({ search }: PaymentsTableProps) {
   const { data, isLoading } = usePayments()
 
+  const { t } = useTranslation()
+
   const [page, setPage] = useState(1)
 
   const pageSize = 10
@@ -49,8 +53,8 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
   if (!filteredPayments.length) {
     return (
       <EmptyState
-        title="No payments found"
-        description="Try searching with a different keyword."
+        title={t('payments.table.noPaymentsTitle')}
+        description={t('payments.table.noPaymentsDescription')}
       />
     )
   }
@@ -61,13 +65,17 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Customer</TableHead>
+              <TableHead>{t('payments.table.customer')}</TableHead>
 
-              <TableHead>Amount</TableHead>
+              <TableHead>{t('payments.table.amount')}</TableHead>
 
-              <TableHead className="hidden sm:table-cell">Status</TableHead>
+              <TableHead className="hidden sm:table-cell">
+                {t('payments.table.status')}
+              </TableHead>
 
-              <TableHead className="hidden md:table-cell">Date</TableHead>
+              <TableHead className="hidden md:table-cell">
+                {t('payments.table.date')}
+              </TableHead>
             </TableRow>
           </TableHeader>
 
@@ -84,7 +92,7 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
                       <p className="font-semibold">{payment.customer}</p>
 
                       <p className="text-muted-foreground truncate text-xs">
-                        Payment Client
+                        {t('payments.table.paymentClient')}
                       </p>
                     </div>
                   </div>
@@ -104,7 +112,7 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
                         : 'rounded-xl border border-yellow-500/10 bg-yellow-500/10 px-3 py-1 text-xs font-medium text-yellow-500'
                     }
                   >
-                    {payment.status}
+                    {t(`payments.status.${payment.status.toLowerCase()}`)}
                   </Badge>
                 </TableCell>
 
@@ -118,11 +126,11 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
 
         <div className="border-border/50 flex flex-col gap-4 border-t p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
           <div className="text-muted-foreground text-sm">
-            Showing{' '}
+            {t('payments.table.showing')}{' '}
             <span className="font-semibold text-foreground">
               {paginatedPayments.length}
             </span>{' '}
-            payments
+            {t('payments.table.paymentsCount')}
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3">
@@ -132,11 +140,11 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
               disabled={page === 1}
               onClick={() => setPage(prev => prev - 1)}
             >
-              Previous
+              {t('payments.table.previous')}
             </Button>
 
             <div className="bg-background/70 border-border/50 rounded-2xl border px-3 py-2 text-sm font-semibold shadow-sm backdrop-blur-xl sm:px-4">
-              Page {page}
+              {t('payments.table.page')} {page}
             </div>
 
             <Button
@@ -145,7 +153,7 @@ export function PaymentsTable({ search }: PaymentsTableProps) {
               disabled={page * pageSize >= filteredPayments.length}
               onClick={() => setPage(prev => prev + 1)}
             >
-              Next
+              {t('payments.table.next')}
             </Button>
           </div>
         </div>

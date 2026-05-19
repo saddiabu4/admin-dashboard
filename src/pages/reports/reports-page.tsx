@@ -8,6 +8,8 @@ import {
   YAxis,
 } from 'recharts'
 
+import { useTranslation } from 'react-i18next'
+
 import { Card, CardContent } from '@/shared/ui/card'
 
 const data = [
@@ -43,13 +45,17 @@ const data = [
 ]
 
 export function ReportsPage() {
+  const { t } = useTranslation()
+
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold sm:text-3xl">Reports</h1>
+        <h1 className="text-2xl font-bold sm:text-3xl">
+          {t('reports.page.title')}
+        </h1>
 
         <p className="text-muted-foreground mt-2 text-sm sm:text-base">
-          Analytics and revenue insights overview.
+          {t('reports.page.description')}
         </p>
       </div>
 
@@ -57,11 +63,11 @@ export function ReportsPage() {
         <CardContent className="p-4 sm:p-6">
           <div className="mb-6">
             <h2 className="text-lg font-semibold sm:text-xl">
-              Revenue Overview
+              {t('reports.page.revenueOverview')}
             </h2>
 
             <p className="text-muted-foreground text-sm">
-              Monthly revenue analytics
+              {t('reports.page.monthlyRevenue')}
             </p>
           </div>
 

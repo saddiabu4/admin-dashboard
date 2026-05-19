@@ -7,7 +7,7 @@ import type { UserRole } from '@/features/auth/types'
 import { routes } from '@/shared/constants/routes'
 
 type NavigationItem = {
-  label: string
+  labelKey: string
 
   href: string
 
@@ -18,7 +18,7 @@ type NavigationItem = {
 
 export const navigation: NavigationItem[] = [
   {
-    label: 'Dashboard',
+    labelKey: 'navigation.dashboard',
 
     href: routes.dashboard,
 
@@ -26,7 +26,7 @@ export const navigation: NavigationItem[] = [
   },
 
   {
-    label: 'Users',
+    labelKey: 'navigation.users',
 
     href: routes.users,
 
@@ -36,7 +36,7 @@ export const navigation: NavigationItem[] = [
   },
 
   {
-    label: 'Payments',
+    labelKey: 'navigation.payments',
 
     href: routes.payments,
 
@@ -46,7 +46,7 @@ export const navigation: NavigationItem[] = [
   },
 
   {
-    label: 'Reports',
+    labelKey: 'navigation.reports',
 
     href: routes.reports,
 
