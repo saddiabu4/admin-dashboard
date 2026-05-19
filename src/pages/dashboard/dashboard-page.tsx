@@ -1,3 +1,13 @@
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts'
+
 import { CreditCard, DollarSign, FileText, Users } from 'lucide-react'
 
 import { useTranslation } from 'react-i18next'
@@ -36,6 +46,21 @@ const stats = [
 
     icon: FileText,
   },
+]
+
+const revenueData = [
+  { month: 'Yan', revenue: 4200 },
+  { month: 'Fev', revenue: 3800 },
+  { month: 'Mar', revenue: 5100 },
+  { month: 'Apr', revenue: 4700 },
+  { month: 'May', revenue: 6200 },
+  { month: 'Iyn', revenue: 5900 },
+  { month: 'Iyl', revenue: 6800 },
+  { month: 'Avg', revenue: 7400 },
+  { month: 'Sen', revenue: 7100 },
+  { month: 'Okt', revenue: 7900 },
+  { month: 'Noy', revenue: 8600 },
+  { month: 'Dek', revenue: 9200 },
 ]
 
 export function DashboardPage() {
@@ -97,10 +122,82 @@ export function DashboardPage() {
               </p>
             </div>
 
-            <div className="bg-muted/50 border-border/50 flex h-72 items-center justify-center rounded-3xl border">
-              <span className="text-muted-foreground text-sm">
-                {t('dashboard.analytics.chart')}
-              </span>
+            <div className="bg-muted/50 border-border/50 h-72 rounded-3xl border p-4 sm:h-80 sm:p-6">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={revenueData}>
+                  <defs>
+                    <linearGradient
+                      id="revenueFill"
+                      x1="0"
+                      y1="0"
+                      x2="0"
+                      y2="1"
+                    >
+                      <stop
+                        offset="5%"
+                        stopColor="#6366f1"
+                        stopOpacity={0.35}
+                      />
+                      <stop
+                        offset="95%"
+                        stopColor="#6366f1"
+                        stopOpacity={0.04}
+                      />
+                    </linearGradient>
+                  </defs>
+
+                  <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.15} />
+
+                  <XAxis
+                    dataKey="month"
+                    tickLine={false}
+                    axisLine={false}
+                    tick={{
+                      fill: 'hsl(var(--muted-foreground))',
+                      fontSize: 12,
+                    }}
+                  />
+
+                  <YAxis
+                    tickLine={false}
+                    axisLine={false}
+                    width={44}
+                    tick={{
+                      fill: 'hsl(var(--muted-foreground))',
+                      fontSize: 12,
+                    }}
+                  />
+
+                  <Tooltip
+                    cursor={{ stroke: 'hsl(var(--border))', strokeWidth: 1 }}
+                    contentStyle={{
+                      backgroundColor: 'hsl(var(--background))',
+                      border: '1px solid hsl(var(--border))',
+                      borderRadius: 16,
+                      boxShadow: '0 12px 32px rgba(15, 23, 42, 0.12)',
+                    }}
+                    labelStyle={{
+                      color: 'hsl(var(--foreground))',
+                      fontWeight: 600,
+                    }}
+                  />
+
+                  <Area
+                    type="monotone"
+                    dataKey="revenue"
+                    stroke="#6366f1"
+                    strokeWidth={3}
+                    fill="url(#revenueFill)"
+                    dot={false}
+                    activeDot={{
+                      r: 5,
+                      fill: '#6366f1',
+                      stroke: '#fff',
+                      strokeWidth: 2,
+                    }}
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
             </div>
           </CardContent>
         </Card>

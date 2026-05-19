@@ -21,7 +21,11 @@ export function LanguageSwitcher() {
       className="h-9 w-[120px] rounded-xl border-border/50 bg-background/80 text-xs font-medium backdrop-blur-xl sm:w-[140px]"
     >
       {supportedLanguages.map(language => (
-        <option key={language} value={language}>
+        <option
+          key={language}
+          value={language}
+          className="bg-background text-foreground dark:bg-input/90 dark:text-foreground"
+        >
           {t(
             `language.${language === 'en' ? 'english' : language === 'ru' ? 'russian' : 'uzbek'}`,
           )}
